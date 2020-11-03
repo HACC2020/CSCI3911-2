@@ -1,13 +1,10 @@
 # CSCI3911-2
 - 3 users
-    - admin
-    - sponsor
-    - front desk
-  
+
   - Admin user:
      - creates sponsors account
      - creates front desk account
-     - see records of given badges and information         about meetings     
+     - see records of given badges and information about meetings     
 
   - Sponsor user:
      - creating meetings
@@ -16,5 +13,5 @@
 
   - Front Desk user:
      - checking people in
-       - lookup meeting by timeslots or sponsor             name
-       - selecting meeting and                               assigning/unnassigning badge numbers for           checkin/checkout
+       - lookup meeting by timeslots or sponsor name
+       - selecting meeting and assigning/unnassigning badge numbers for checkin/checkout

@@ -9,6 +9,9 @@ from django.utils import timezone
 class Guest(models.Model):
     name = models.CharField(max_length=30)
     badge_id = models.IntegerField()
+    
+    def __str__(self):
+        return self.name
 # Create your models here.
 
 

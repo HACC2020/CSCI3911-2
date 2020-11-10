@@ -9,6 +9,9 @@ from django.utils import timezone
 class Guest(models.Model):
     name = models.CharField(max_length=30)
     badge_id = models.IntegerField()
+    
+    def __str__(self):
+        return self.name
 # Create your models here.
 
 
@@ -26,3 +29,6 @@ class Meeting(models.Model):
 
     def getMeetingInfo(self):
         return '%s %s' % (self.meeting_title, self.meeting_desc)
+    
+    def __str__(self):
+        return self.meeting_title

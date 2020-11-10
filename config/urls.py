@@ -19,6 +19,6 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path('', include('pages.urls')),  # new
+    url(r'', admin.site.urls),
+    #path('', include('pages.urls')),  # new
 ]

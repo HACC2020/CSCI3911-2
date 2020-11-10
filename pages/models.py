@@ -29,3 +29,6 @@ class Meeting(models.Model):
 
     def getMeetingInfo(self):
         return '%s %s' % (self.meeting_title, self.meeting_desc)
+    
+    def __str__(self):
+        return self.meeting_title

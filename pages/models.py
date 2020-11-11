@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class Guest(models.Model):
     name = models.CharField(max_length=30)
-    badge_id = models.IntegerField()
+    badge_id = models.CharField(max_length=30)
     checked_in = models.BooleanField()
 
     def __str__(self):

@@ -12,12 +12,14 @@ class Guest(models.Model):
     checked_in = models.BooleanField()
 
     def __str__(self):
-        return '%s     |     BadgeID: %s     |      Checked In: %s' % (self.name, self.badge_id, str(self.checked_in))
+        return '%s | Checked In: %s' % (self.name, str(self.checked_in))
 # Create your models here.
 
 # Meeting_title = Meeting_room
+
+
 class Meeting(models.Model):
-    guest = models.ManyToManyField(Guest)
+    guest = models.OneToOneField(Guest, on_delete=models.CASCADE)
     meeting_room = models.CharField(max_length=30)
     meeting_desc = models.CharField(max_length=200)
     time_slot = models.DateTimeField()

@@ -9,9 +9,10 @@ from django.utils import timezone
 class Guest(models.Model):
     name = models.CharField(max_length=30)
     badge_id = models.IntegerField()
-    
+    checked_in = models.BooleanField()
+
     def __str__(self):
-        return self.name
+        return '%s     |     BadgeID: %s     |      Checked In: %s' % (self.name, self.badge_id, str(self.checked_in))
 # Create your models here.
 
 
@@ -29,6 +30,6 @@ class Meeting(models.Model):
 
     def getMeetingInfo(self):
         return '%s %s' % (self.meeting_title, self.meeting_desc)
-    
+
     def __str__(self):
-        return self.meeting_title
+        return '%s at %s' % (self.meeting_title, self.time_slot.strftime("%c"))

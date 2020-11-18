@@ -11,27 +11,28 @@ from django.contrib.auth.models import Permission
 GROUPS = ['Sponsor', 'front_desk']
 MODELS = ['meeting', 'guest']
 # For now only view permission by default for all, others include add, delete, change
-PERMISSIONS = ['view', ]
+SPONSOR_PERMISSIONS = ['view', 'change', 'add']
 
 
 class Command(BaseCommand):
     help = 'Creates read only default permission groups for users'
 
     def handle(self, *args, **options):
-        for group in GROUPS:
-            new_group, created = Group.objects.get_or_create(name=group)
-            for model in MODELS:
-                for permission in PERMISSIONS:
-                    name = 'Can {} {}'.format(permission, model)
-                    print("Creating {}".format(name))
+        new_group, created = Group.objects.get_or_create(name='Sponsor')
+        for permission in SPONSOR_PERMISSIONS:
+            name = 'Can {} {}'.format(permission, 'meeting')
+            print("Creating {}".format(name))
 
-                    try:
-                        model_add_perm = Permission.objects.get(name=name)
-                    except Permission.DoesNotExist:
-                        logging.warning(
-                            "Permission not found with name '{}'.".format(name))
-                        continue
+            try:
+                model_add_perm = Permission.objects.get(name=name)
+            except Permission.DoesNotExist:
+                logging.warning(
+                    "Permission not found with name '{}'.".format(name))
+                continue
 
-                    new_group.permissions.add(model_add_perm)
-
+            new_group.permissions.add(model_add_perm)
+        name = 'Can {} {}'.format('view', 'guest')
+        model_add_perm = Permission.objects.get(name=name)
+        name = 'Can {} {}'.format('change', 'guest')
+        model_add_perm = Permission.objects.get(name=name)
         print("Created default group and permissions.")

@@ -31,8 +31,16 @@ class Command(BaseCommand):
                 continue
 
             new_group.permissions.add(model_add_perm)
+
+        new_group, created = Group.objects.get_or_create(name='Front Desk')
         name = 'Can {} {}'.format('view', 'guest')
         model_add_perm = Permission.objects.get(name=name)
+        new_group.permissions.add(model_add_perm)
         name = 'Can {} {}'.format('change', 'guest')
         model_add_perm = Permission.objects.get(name=name)
+        new_group.permissions.add(model_add_perm)
+        name = 'Can {} {}'.format('view', 'meeting')
+        model_add_perm = Permission.objects.get(name=name)
+        new_group.permissions.add(model_add_perm)
+
         print("Created default group and permissions.")

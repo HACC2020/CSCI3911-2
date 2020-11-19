@@ -9,7 +9,7 @@ from .models import Guest
 class MeetingAdmin(admin.ModelAdmin):
     list_display = ("meeting_room", "meeting_desc", "time_slot", "guest_link")
     search_fields = ("meeting_room", "meeting_desc",
-                     "time_slot", "guest__name")
+                     "time_slot", "guest__name", "guest__badge_id")
 
 
 class GuestAdmin(admin.ModelAdmin):

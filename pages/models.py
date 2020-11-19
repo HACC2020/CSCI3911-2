@@ -33,8 +33,5 @@ class Meeting(models.Model):
     def getMeetingInfo(self):
         return '%s %s' % (self.meeting_room, self.meeting_desc)
 
-    def getFormattedTime(self):
-        return self.time_slot.strftime("%c")
-
     def __str__(self):
         return '%s at %s' % (self.meeting_room, self.time_slot.strftime("%c"))

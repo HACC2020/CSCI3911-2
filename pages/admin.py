@@ -7,13 +7,15 @@ from .models import Guest
 
 
 class MeetingAdmin(admin.ModelAdmin):
-    list_display = ("meeting_desc", "meeting_room", "time_slot")
-    search_fields = ("meeting_room", "meeting_desc", )
+    list_display = ("meeting_room", "meeting_desc", "time_slot", "guest_link")
+    search_fields = ("meeting_room", "meeting_desc",
+                     "time_slot", "guest__name")
 
 
 class GuestAdmin(admin.ModelAdmin):
     list_display = ("name", "badge_id", "checked_in")
     search_fields = ("name", "badge_id")
+    def get_model_perms(self, request): return {}
 
 
 admin.site.register(Meeting, MeetingAdmin)

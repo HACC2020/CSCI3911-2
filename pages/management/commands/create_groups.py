@@ -8,7 +8,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import Permission
 
-GROUPS = ['Sponsor', 'front_desk']
+GROUPS = ['Sponsor']
 MODELS = ['meeting', 'guest']
 # For now only view permission by default for all, others include add, delete, change
 SPONSOR_PERMISSIONS = ['view', 'change', 'add']
@@ -31,6 +31,10 @@ class Command(BaseCommand):
                 continue
 
             new_group.permissions.add(model_add_perm)
+
+        name = 'Can {} {}'.format(permission, 'guest')
+        model_add_perm = Permission.objects.get(name=name)
+        new_group.permissions.add(model_add_perm)
 
         new_group, created = Group.objects.get_or_create(name='Front Desk')
         name = 'Can {} {}'.format('view', 'guest')

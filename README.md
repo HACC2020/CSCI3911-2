@@ -20,17 +20,17 @@
 # Requirements:
 Python requirements can be installed using pip install -r requirements.txt
 
-run the provided script with ./setup.sh or 
+run the provided script with ```./setup.sh``` or 
 
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py collectstatic
-python3 manage.py create_groups
-python3 manage.py createsuperuser
+- ```python3 manage.py makemigrations```
+- ```python3 manage.py migrate```
+- ```python3 manage.py collectstatic```
+- ```python3 manage.py create_groups```
+- ```python3 manage.py createsuperuser```
 
 
-Use python3 manage.py runserver to run the website
+Use ```python3 manage.py runserver``` to run the website
 
-To create the superuser, you must within the csci3911-2 directory then run python manage.py createsuperuser then follow the instructions. But for the deployed website, there is already a super user created.
+For the deployed website, there is already a super user created.
 Username: beeva
 Password: 1

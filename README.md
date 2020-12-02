@@ -18,7 +18,7 @@
 
 
 # Requirements:
-Python requirements can be installed using pip install -r requirements.txt
+Python requirements can be installed using pip3 install -r requirements.txt
 
 run the provided script with ```./setup.sh``` or 
 
